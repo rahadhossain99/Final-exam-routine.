@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>স্মার্ট পরীক্ষার রুটিন ও প্রস্তুতি নির্দেশিকা</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            /* Color Palette - Softer Blues, Greens & Lavender Accent */
+            --bg-main: #f4f8f7; /* Lighter, slightly bluish grey */
+            --bg-card: rgba(255, 255, 255, 0.88); /* More opaque white */
+            --bg-card-opaque: #ffffff;
+            --primary-color: #20B2AA; /* Light Sea Green */
+            --primary-dark: #008080; /* Teal */
+            /* Calendar Colors - Updated */
+            --cal-today-border: #87CEEB; /* Sky Blue */
+            --cal-today-bg: rgba(224, 242, 255, 0.8); /* Lighter Sky Blue transparent */
+            --cal-exam-border: #9370DB; /* Medium Purple */
+            --cal-exam-bg: rgba(230, 230, 250, 0.85); /* Lavender transparent */
+            --cal-selected-border: var(--primary-color); /* Light Sea Green */
+            --cal-selected-bg: rgba(224, 255, 255, 0.9); /* Light Cyan transparent */
+            /* --- End Calendar Colors --- */
+            --accent-color: #FFB347; /* Pastel Orange */
+            --accent-dark: #FF8C00; /* Dark Orange */
+            --text-color: #333; /* Darker text for better contrast */
+            --text-light: #555;
+            --border-color: #d0e0e0; /* Softer border */
+            --success-color: #3CB371; /* Medium Sea Green */
+            --warning-color: #FFA07A; /* Light Salmon */
+            --warning-dark: #E9967A; /* Dark Salmon */
+            --info-color: #6495ED; /* Cornflower Blue */
+            --shadow: 0 6px 20px rgba(32, 178, 170, 0.12); /* Softer primary color shadow */
+            --border-radius: 12px; /* Slightly less rounded */
+            --font-main: 'Noto Sans Bengali', sans-serif;
+            --backdrop-blur: blur(8px);
+            --transition-speed: 0.3s;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box; margin: 0; padding: 0;
+        }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--font-main); background-color: var(--bg-main); color: var(--text-color);
+            line-height: 1.7; overflow-x: hidden;
+            background-image: linear-gradient(135deg, #e6fafa 0%, #f4f8f7 100%); background-attachment: fixed;
+        }
+        .container { max-width: 1100px; margin: 2rem auto; padding: 0 1.25rem; }
+
+        /* Card Style */
+        .card {
+            background-color: var(--bg-card); backdrop-filter: var(--backdrop-blur); -webkit-backdrop-filter: var(--backdrop-blur);
+            border: 1px solid rgba(255, 255, 255, 0.3); border-radius: var(--border-radius); box-shadow: var(--shadow);
+            margin-bottom: 2rem; padding: 1.8rem 2rem; overflow: hidden;
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            animation: fadeIn 0.6s ease-out forwards; opacity: 0;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(32, 178, 170, 0.18); }
+
+        /* Header */
+        .app-header {
+            text-align: center; margin-bottom: 2.5rem; padding-bottom: 1.5rem;
+            border-bottom: 3px solid var(--primary-color); animation: slideDown 0.7s ease-out forwards; opacity: 0;
+        }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        .app-header h1 { color: var(--primary-color); font-size: 2.4rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 0.5px; }
+        .app-header p { font-size: 1.1rem; color: var(--text-light); font-weight: 500; }
+
+        h2.section-title {
+            color: var(--primary-dark); font-size: 1.7rem; font-weight: 600; margin-bottom: 0.5rem;
+            text-align: center; position: relative; padding-bottom: 0.8rem;
+        }
+        h2.section-title::after {
+            content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 60px; height: 4px; background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+            border-radius: 3px;
+        }
+        h2.section-title i { margin-right: 0.6rem; color: var(--primary-color); }
+
+        /* Section Header Actions */
+        .section-header-actions { display: flex; justify-content: center; gap: 1rem; margin-top: 0.8rem; margin-bottom: 1.8rem; flex-wrap: wrap; }
+        .action-button {
+            background: linear-gradient(145deg, var(--info-color), #4682B4); /* Blue gradient */ color: white; border: none;
+            padding: 0.5rem 1.2rem; border-radius: 20px; cursor: pointer; font-size: 0.95rem; font-weight: 500;
+            transition: all var(--transition-speed) ease; display: inline-flex; align-items: center; gap: 0.5rem;
+            box-shadow: 0 3px 8px rgba(100, 149, 237, 0.25); text-decoration: none;
+        }
+        .action-button:hover { background: linear-gradient(145deg, #4682B4, var(--info-color)); transform: translateY(-2px); box-shadow: 0 5px 12px rgba(100, 149, 237, 0.35); }
+        .action-button:active { transform: translateY(0px); box-shadow: 0 2px 5px rgba(100, 149, 237, 0.2); }
+        .action-button i { font-size: 1em; }
+
+        /* Progress Bar */
+        .progress-section { margin-bottom: 1.5rem; }
+        .progress-bar-container { width: 100%; background-color: #e0f2f1; border-radius: 25px; padding: 4px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); }
+        .progress-bar {
+            height: 22px; width: 0%; background: linear-gradient(90deg, var(--accent-color), var(--success-color)); border-radius: 20px;
+            display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 0.85rem;
+            white-space: nowrap; transition: width 1s ease-out; overflow: hidden;
+        }
+        .progress-label { text-align: center; font-weight: 500; margin-bottom: 0.5rem; color: var(--primary-dark); }
+
+        /* Routine Table */
+        .routine-table-wrapper { overflow-x: auto; padding-bottom: 0.8rem; }
+        .routine-table { width: 100%; border-collapse: separate; border-spacing: 0 8px; font-size: 1rem; }
+        .routine-table th, .routine-table td { padding: 1rem 1.1rem; text-align: left; vertical-align: middle; }
+        .routine-table th { background-color: var(--primary-color); color: #fff; font-weight: 600; font-size: 1.05rem; text-align: center; letter-spacing: 0.5px; }
+        .routine-table th:first-child { border-top-left-radius: 10px; border-bottom-left-radius: 10px;}
+        /* Adjusted last-child for 5 columns */
+        .routine-table th:nth-child(5) { border-top-right-radius: 10px; border-bottom-right-radius: 10px;}
+
+        .routine-table tbody tr {
+            background-color: var(--bg-card-opaque); border-radius: 10px; box-shadow: 0 2px 5px rgba(0, 102, 102, 0.07);
+            transition: transform var(--transition-speed) ease, background-color var(--transition-speed) ease; page-break-inside: avoid;
+        }
+        .routine-table tbody tr:hover { transform: scale(1.015); background-color: #e6fafa; z-index: 1; position: relative; }
+        .routine-table td { border: none; border-bottom: 1px solid var(--border-color); }
+        .routine-table td:first-child { border-left: 1px solid var(--border-color); border-top-left-radius: 10px; border-bottom-left-radius: 10px;}
+        /* Adjusted last-child for 5 columns */
+        .routine-table td:nth-child(5) { border-right: 1px solid var(--border-color); border-top-right-radius: 10px; border-bottom-right-radius: 10px;}
+        .routine-table tr td:not(:nth-child(5)) { border-right: 1px dashed var(--border-color); } /* Adjusted for 5 columns */
+        .routine-table tr:last-child td { border-bottom: 1px solid var(--border-color); }
+
+        .routine-table td:nth-child(1), /* Date */
+        .routine-table td:nth-child(2), /* Day */
+        .routine-table td:nth-child(3) { /* Time */
+            text-align: center; white-space: nowrap; font-weight: 500; color: var(--primary-dark);
+        }
+        .routine-table td:nth-child(4) { font-weight: 600; } /* Subject */
+        .subject-code { font-size: 0.9em; color: var(--text-light); margin-left: 5px; }
+        /* Countdown Timer Cell */
+        .routine-table td:nth-child(5) { text-align: center; }
+
+        .countdown-timer {
+            font-weight: 500; /* Slightly lighter weight */ padding: 0.3rem 0.6rem; border-radius: 6px; font-size: 0.9em;
+            display: inline-block; white-space: nowrap; color: var(--primary-dark);
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+        }
+        .countdown-timer.ongoing {
+             background-color: rgba(255, 160, 122, 0.15); /* Light Salmon bg */
+             color: var(--warning-dark); /* Dark Salmon text */
+             font-weight: 600;
+        }
+        .countdown-timer.completed { color: var(--text-light); opacity: 0.7; }
+        /* Span for print countdown text (hidden on screen) */
+        .print-only-countdown { display: none; }
+
+        /* Calendar - New Colors */
+        .calendar-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+        .calendar-controls button {
+            background: linear-gradient(145deg, var(--primary-color), var(--primary-dark)); color: white; border: none;
+            padding: 0.6rem 1rem; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 500;
+            transition: all var(--transition-speed) ease; display: flex; align-items: center; gap: 0.5rem;
+            box-shadow: 0 3px 8px rgba(0, 128, 128, 0.2);
+        }
+        .calendar-controls button:hover { background: linear-gradient(145deg, var(--primary-dark), var(--primary-color)); transform: translateY(-2px); box-shadow: 0 5px 12px rgba(0, 128, 128, 0.3); }
+        .calendar-controls button:active { transform: translateY(0px); box-shadow: 0 2px 5px rgba(0, 128, 128, 0.2); }
+        #month-year { font-size: 1.6em; font-weight: 700; color: var(--primary-dark); }
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.6rem; }
+        .calendar-header { text-align: center; font-weight: 600; padding: 0.6rem 0; color: var(--text-light); font-size: 0.9em; border-radius: 8px; background-color: rgba(224, 242, 241, 0.7); }
+        .calendar-day {
+            padding: 0.7rem 0.4rem; text-align: center; border: 1px solid transparent; min-height: 85px; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;
+            cursor: pointer; background-color: rgba(255, 255, 255, 0.65); transition: all var(--transition-speed) ease; border-radius: 10px; position: relative; font-size: 0.95rem;
+        }
+        .calendar-day span.day-number { font-weight: 600; font-size: 1.1em; margin-bottom: 0.4rem; line-height: 1; transition: color var(--transition-speed) ease; }
+        .calendar-day.empty { background-color: transparent; cursor: default; opacity: 0.5; }
+        .calendar-day:not(.empty):hover { background-color: rgba(255, 255, 255, 0.95); transform: scale(1.03); border-color: var(--border-color); }
+        /* Updated Calendar Colors Applied */
+        .calendar-day.today { border: 2px solid var(--cal-today-border); background-color: var(--cal-today-bg); }
+        .calendar-day.today span.day-number { color: var(--cal-today-border); font-weight: 700; }
+        .calendar-day.exam-day { background-color: var(--cal-exam-bg); border: 1px solid var(--cal-exam-border); }
+        .calendar-day.exam-day span.day-number { color: var(--cal-exam-border); font-weight: 700; }
+        .calendar-day.selected-day { background-color: var(--cal-selected-bg); border: 2px solid var(--cal-selected-border); transform: scale(1.05); box-shadow: 0 0 10px rgba(32, 178, 170, 0.3); }
+        .calendar-day.selected-day span.day-number { color: var(--primary-dark); }
+        .calendar-day .note-indicator { position: absolute; bottom: 6px; right: 6px; width: 9px; height: 9px; background-color: var(--accent-color); border-radius: 50%; display: none; box-shadow: 0 0 5px rgba(255, 179, 71, 0.7); }
+        .calendar-day.has-note .note-indicator { display: block; }
+
+        /* Notes Section */
+        .notes-section { border-top: 1px solid var(--border-color); padding-top: 1.8rem; margin-top: 1.8rem; }
+        #note-date-display { font-weight: 600; margin-bottom: 1rem; color: var(--primary-dark); font-size: 1.25rem; text-align: center; }
+        #note-date-display i { margin-right: 0.5rem; color: var(--primary-color); } /* Style icon */
+        #note-input {
+            width: 100%; min-height: 120px; margin-bottom: 1.2rem; padding: 1rem; border: 1px solid var(--border-color); border-radius: 10px; font-family: var(--font-main);
+            font-size: 1rem; resize: vertical; background-color: rgba(255, 255, 255, 0.75); transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+        #note-input:focus { border-color: var(--primary-color); box-shadow: 0 0 0 4px rgba(32, 178, 170, 0.15); outline: none; background-color: rgba(255, 255, 255, 0.9); }
+        .note-actions { display: flex; justify-content: center; gap: 1rem; }
+        .note-actions button {
+            background: linear-gradient(145deg, var(--accent-color), var(--accent-dark)); color: white; border: none; padding: 0.7rem 1.8rem; border-radius: 25px;
+            cursor: pointer; font-size: 1rem; font-weight: 600; transition: all var(--transition-speed) ease; display: flex; align-items: center; gap: 0.6rem;
+            box-shadow: 0 3px 8px rgba(255, 179, 71, 0.25); letter-spacing: 0.5px;
+        }
+        .note-actions button:hover { background: linear-gradient(145deg, var(--accent-dark), var(--accent-color)); transform: translateY(-2px) scale(1.03); box-shadow: 0 5px 12px rgba(255, 179, 71, 0.35); }
+        .note-actions button:active { transform: translateY(0px) scale(1); box-shadow: 0 2px 5px rgba(255, 179, 71, 0.2); }
+        #clear-note-btn { background: linear-gradient(145deg, var(--text-light), #778899); box-shadow: 0 3px 8px rgba(119, 136, 153, 0.2); }
+        #clear-note-btn:hover { background: linear-gradient(145deg, #778899, var(--text-light)); box-shadow: 0 5px 12px rgba(119, 136, 153, 0.3); }
+
+        /* Footer */
+        .app-footer { text-align: center; margin-top: 3rem; padding: 1rem; color: var(--text-light); font-size: 0.95em; border-top: 1px solid var(--border-color); }
+        .copyright { font-family: Consolas, Monaco, monospace; font-size: 1em; color: var(--primary-dark); font-weight: 600; text-shadow: 1px 1px 0px rgba(255,255,255,0.7), -1px -1px 0px rgba(0,0,0,0.08); }
+
+        /* Responsive */
+        @media (max-width: 992px) { html { font-size: 15px; } .app-header h1 { font-size: 2.2rem; } }
+        @media (max-width: 768px) {
+            html { font-size: 14px; } .container { padding: 0 1rem; margin: 1.5rem auto; }
+            .card { padding: 1.5rem; border-radius: 12px; } .app-header h1 { font-size: 2rem; }
+            h2.section-title { font-size: 1.6rem; } .routine-table th, .routine-table td { padding: 0.8rem; font-size: 0.95rem; }
+            .countdown-timer { font-size: 0.85em; } #month-year { font-size: 1.4em; }
+            .calendar-controls { flex-direction: column; gap: 0.8rem; } .calendar-day { min-height: 70px; font-size: 0.9em; padding: 0.5rem 0.3rem; }
+            .note-actions { flex-direction: column; gap: 0.8rem; } .note-actions button { width: 100%; justify-content: center; padding: 0.8rem 1rem; }
+            .section-header-actions { margin-bottom: 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            html { font-size: 13px; } .card { padding: 1rem; border-radius: 10px; backdrop-filter: none; background-color: var(--bg-card-opaque); }
+            .app-header { margin-bottom: 2rem; padding-bottom: 1rem;} .app-header h1 { font-size: 1.8rem; }
+            h2.section-title { font-size: 1.4rem; } .routine-table th { font-size: 0.9rem; padding: 0.6rem 0.5rem; }
+            .routine-table td { font-size: 0.85rem; padding: 0.7rem 0.5rem;} .subject-code { display: block; margin-left: 0; margin-top: 2px; }
+            .countdown-timer { padding: 0.2rem 0.4rem; font-size: 0.8em; }
+            .calendar-grid { gap: 0.4rem; } .calendar-day { min-height: 60px; padding: 0.4rem 0.2rem; border-radius: 8px; }
+            #note-input { min-height: 100px; padding: 0.8rem; } .note-actions button { font-size: 0.95rem; padding: 0.7rem 1rem; }
+            .section-header-actions { gap: 0.5rem; } .action-button { font-size: 0.9rem; padding: 0.4rem 1rem; }
+        }
+
+        /* Print Styles - Updated */
+        @media print {
+            body { background: #fff !important; color: #000 !important; font-size: 10pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .container { max-width: 100%; margin: 0; padding: 0; }
+            .card { box-shadow: none; border: 1px solid #ccc; margin-bottom: 1rem; padding: 1rem; background: #fff !important; backdrop-filter: none !important; }
+            .no-print, .app-header, .progress-card, .calendar-notes-card, .app-footer, .section-header-actions { display: none !important; }
+            .routine-card { display: block !important; page-break-before: auto; page-break-inside: avoid; }
+            h2.section-title { color: #000; font-size: 14pt; text-align: center; margin-bottom: 1rem; border-bottom: 2px solid #000; }
+            h2.section-title::after, h2.section-title i { display: none; }
+            .routine-table-wrapper { overflow: visible; }
+            .routine-table { font-size: 9pt; border-spacing: 0; width: 100%; }
+            .routine-table th, .routine-table td { padding: 0.4rem 0.6rem; border: 1px solid #999 !important; color: #000 !important; vertical-align: middle; }
+            .routine-table th { background-color: #eee !important; font-weight: bold; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .routine-table td:not(:last-child) { border-right: 1px solid #999 !important; }
+            .routine-table tbody tr { background: #fff !important; box-shadow: none; border-radius: 0;}
+            .routine-table td:first-child, .routine-table td:last-child { border-radius: 0; }
+            /* Show Countdown Cell (5th) in print */
+            .routine-table th:nth-child(5), .routine-table td:nth-child(5) { display: table-cell !important; text-align: center; }
+            .countdown-timer .screen-only-countdown { display: none; } /* Hide the screen version */
+            .countdown-timer .print-only-countdown { display: inline !important; font-weight: normal; } /* Show print version */
+            body::before { content: "পরীক্ষার সময়সূচী - সরকারি শহীদ সিরাজুদ্দীন হোসেন মহাবিদ্যালয়"; display: block; text-align: center; font-size: 16pt; font-weight: bold; margin-bottom: 1.5rem; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="app-header no-print">
+            <h1>সরকারি শহীদ সিরাজুদ্দীন হোসেন মহাবিদ্যালয়</h1>
+            <p>উচ্চ মাধ্যমিক একাদশ শ্রেণি - বার্ষিক পরীক্ষা ২০২৫ (বিজ্ঞান বিভাগ)</p>
+            <p>স্মার্ট রুটিন ও প্রস্তুতি নির্দেশিকা</p>
+        </header>
+
+        <main>
+             <!-- Progress Section -->
+            <section class="card progress-card no-print">
+                <h2 class="section-title"><i class="fa-solid fa-chart-line"></i> পরীক্ষার অগ্রগতি</h2>
+                <div class="progress-section">
+                    <div class="progress-label" id="progress-label">অগ্রগতি গণনা করা হচ্ছে...</div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                            <span id="progress-text">০%</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Exam Routine Section -->
+            <section class="card routine-card">
+                <h2 class="section-title"><i class="fa-regular fa-calendar-days"></i> পরীক্ষার সময়সূচী</h2>
+                <div class="section-header-actions no-print">
+                    <button id="print-btn" class="action-button">
+                        <i class="fa-solid fa-print"></i> রুটিন প্রিন্ট করুন
+                    </button>
+                    <a href="https://rahadhossain99.github.io/-./" target="_blank" id="syllabus-link" class="action-button">
+                        <i class="fa-solid fa-file-alt"></i> সিলেবাস দেখুন/তৈরি করুন
+                    </a>
+                </div>
+                <div class="routine-table-wrapper">
+                    <table class="routine-table">
+                        <thead>
+                            <tr>
+                                <th><i class="fa-solid fa-calendar-day"></i> তারিখ</th>
+                                <th><i class="fa-solid fa-flag"></i> বার</th>
+                                <th><i class="fa-solid fa-clock"></i> সময়</th>
+                                <th><i class="fa-solid fa-book"></i> বিষয় (কোড)</th>
+                                <th><i class="fa-solid fa-hourglass-half"></i> বাকি সময়</th>
+                                <!-- Status column header removed -->
+                            </tr>
+                        </thead>
+                        <tbody id="routine-body">
+                            <!-- JS Populated -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Calendar and Notes Section -->
+            <section class="card calendar-notes-card no-print">
+                 <h2 class="section-title"><i class="fa-solid fa-calendar-check"></i> পরীক্ষার ক্যালেন্ডার ও নোটবুক</h2>
+                 <div class="calendar-controls">
+                    <button id="prev-month-btn"><i class="fa-solid fa-arrow-left"></i> পূর্ববর্তী মাস</button>
+                    <span id="month-year" class="bn-num"></span>
+                    <button id="next-month-btn">পরবর্তী মাস <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="calendar-grid" id="calendar-days-header">
+                     <div class="calendar-header bn-num">রবি</div> <div class="calendar-header bn-num">সোম</div> <div class="calendar-header bn-num">মঙ্গল</div> <div class="calendar-header bn-num">বুধ</div> <div class="calendar-header bn-num">বৃহঃ</div> <div class="calendar-header bn-num">শুক্র</div> <div class="calendar-header bn-num">শনি</div>
+                </div>
+                <div class="calendar-grid" id="calendar-grid">
+                    <!-- JS Populated -->
+                </div>
+
+                 <div class="notes-section">
+                      <!-- Changed icon -->
+                     <h3 id="note-date-display" class="bn-num"><i class="fa-solid fa-pencil-alt"></i> একটি তারিখ নির্বাচন করুন...</h3>
+                     <textarea id="note-input" placeholder="এই তারিখের জন্য আপনার দরকারি নোট, পড়ার পরিকল্পনা বা প্রশ্ন এখানে যোগ করুন..." rows="5"></textarea>
+                     <div class="note-actions">
+                        <button id="save-note-btn"><i class="fa-solid fa-save"></i> নোট সংরক্ষণ করুন</button>
+                        <button id="clear-note-btn"><i class="fa-solid fa-eraser"></i> নোট মুছে ফেলুন</button>
+                     </div>
+                 </div>
+            </section>
+        </main>
+
+        <!-- Footer - Removed college details -->
+        <footer class="app-footer no-print">
+            <div class="copyright">
+                &copy; ২০২৪ । Rahad Hossain
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // --- Data ---
+        const examRoutineData = [
+             { date: "2025-05-26", day: "সোমবার", time: "১০:০০ - ০১:০০", subject: "ইংরেজি (আবশ্যিক)", code: "১০৭" },
+            { date: "2025-05-27", day: "মঙ্গলবার", time: "১০:০০ - ০১:০০", subject: "তথ্য ও যোগাযোগ প্রযুক্তি", code: "২৭৫" },
+            { date: "2025-05-28", day: "বুধবার", time: "১০:০০ - ০১:০০", subject: "বাংলা (আবশ্যিক)", code: "১০১" },
+            { date: "2025-05-29", day: "বৃহস্পতিবার", time: "১০:০০ - ০১:০০", subject: "পদার্থবিজ্ঞান", code: "১৭৪" },
+            { date: "2025-06-15", day: "রবিবার", time: "১০:০০ - ০১:০০", subject: "রসায়নবিজ্ঞান", code: "১৭৬" },
+            { date: "2025-06-17", day: "মঙ্গলবার", time: "১০:০০ - ০১:০০", subject: "জীববিজ্ঞান", code: "১৭৮" },
+            { date: "2025-06-18", day: "বুধবার", time: "১০:০০ - ০১:০০", subject: "উচ্চতর গণিত", code: "২৬৫" },
+        ];
+
+        const monthNamesBn = ["জানুয়ারি", "ফেব্রুয়ারি", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগস্ট", "সেপ্টেম্বর", "অক্টোবর", "নভেম্বর", "ডিসেম্বর"];
+        const numeralsBn = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+
+        // --- Utility ---
+        function toBengaliNumerals(numStr) { /* ... (same as before) ... */ if (numStr === null || numStr === undefined) return ''; let bnStr = ''; const str = String(numStr); for (let i = 0; i < str.length; i++) { const char = str[i]; if (char >= '0' && char <= '9') { bnStr += numeralsBn[parseInt(char)]; } else { bnStr += char; } } return bnStr; }
+        function formatDateBnLong(dateStr) { /* ... (same as before) ... */ try { const date = new Date(dateStr + 'T00:00:00'); const day = toBengaliNumerals(date.getDate()); const month = monthNamesBn[date.getMonth()]; const year = toBengaliNumerals(date.getFullYear()); return `${day}শে ${month}, ${year}`; } catch (e) { return dateStr; } }
+        function formatDateBnShort(dateStr) { /* ... (same as before) ... */ try { const parts = dateStr.split('-'); if (parts.length === 3) { const day = toBengaliNumerals(parts[2].padStart(2, '০')); const month = toBengaliNumerals(parts[1].padStart(2, '০')); const year = toBengaliNumerals(parts[0].slice(-2)); return `${day}/${month}/${year}`; } return dateStr; } catch (e) { return dateStr; } }
+
+        // --- DOM Elements ---
+        const routineBody = document.getElementById('routine-body');
+        const calendarGrid = document.getElementById('calendar-grid');
+        const monthYearDisplay = document.getElementById('month-year');
+        const prevMonthBtn = document.getElementById('prev-month-btn');
+        const nextMonthBtn = document.getElementById('next-month-btn');
+        const noteDateDisplay = document.getElementById('note-date-display');
+        const noteInput = document.getElementById('note-input');
+        const saveNoteBtn = document.getElementById('save-note-btn');
+        const clearNoteBtn = document.getElementById('clear-note-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        const progressLabel = document.getElementById('progress-label');
+        const printBtn = document.getElementById('print-btn');
+
+        // --- State ---
+        let currentYear = new Date().getFullYear(); let currentMonth = new Date().getMonth(); let selectedDate = null; let notes = {}; let countdownInterval = null;
+        const NOTES_STORAGE_KEY = 'shahidSirajuddinCollege_Notes_v5'; // Incremented version
+
+        // --- Local Storage ---
+        function loadNotes() { /* ... (same as before) ... */ try { const storedNotes = localStorage.getItem(NOTES_STORAGE_KEY); if (storedNotes) notes = JSON.parse(storedNotes); else notes = {}; } catch (e) { console.error("নোট লোড করতে সমস্যা:", e); notes = {}; } }
+        function saveNotes() { /* ... (same as before) ... */ try { localStorage.setItem(NOTES_STORAGE_KEY, JSON.stringify(notes)); } catch (e) { console.error("নোট সংরক্ষণ করতে সমস্যা:", e); alert("ত্রুটি: নোট সংরক্ষণ করা সম্ভব হচ্ছে না।"); } }
+
+        // --- Exam Status & Progress ---
+        function getExamStatusCode(examDateStr) { /* Return only code: 'completed', 'ongoing', 'upcoming' */ const now = new Date(); const examStartDateTime = new Date(`${examDateStr}T10:00:00`); const examEndDateTime = new Date(`${examDateStr}T13:00:00`); if (now > examEndDateTime) return 'completed'; if (now >= examStartDateTime) return 'ongoing'; return 'upcoming'; }
+        function updateProgressBar() { /* ... (same as before, no change needed) ... */ const now = new Date(); const totalExams = examRoutineData.length; if (totalExams === 0) { progressLabel.textContent = "কোনো পরীক্ষা তালিকাভুক্ত নেই"; progressBar.style.width = '0%'; progressText.textContent = '০%'; return; }; let completedExams = 0; examRoutineData.forEach(exam => { const examEndDateTime = new Date(`${exam.date}T13:00:00`); if (now > examEndDateTime) { completedExams++; } }); const progressPercentage = Math.round((completedExams / totalExams) * 100); progressBar.style.width = `${progressPercentage}%`; progressBar.setAttribute('aria-valuenow', progressPercentage); progressText.textContent = `${toBengaliNumerals(progressPercentage)}% সমাপ্ত`; progressLabel.textContent = `মোট ${toBengaliNumerals(totalExams)} টি পরীক্ষার মধ্যে ${toBengaliNumerals(completedExams)} টি সম্পন্ন হয়েছে`; }
+
+        // --- Routine Population (Status Column Removed) ---
+        function populateRoutineTable() {
+            routineBody.innerHTML = '';
+            examRoutineData.forEach((exam, index) => {
+                const row = routineBody.insertRow();
+                row.setAttribute('data-date', exam.date);
+                row.style.animation = `fadeInTableRow 0.5s ${index * 0.05}s ease-out forwards`;
+                row.style.opacity = '0';
+
+                row.insertCell().innerHTML = `<span class="bn-num">${formatDateBnShort(exam.date)}</span>`;
+                row.insertCell().innerHTML = `<span class="bn-num">${exam.day}</span>`;
+                row.insertCell().innerHTML = `<span class="bn-num">${toBengaliNumerals(exam.time)}</span>`;
+                row.insertCell().innerHTML = `${exam.subject} <span class="subject-code bn-num">(${toBengaliNumerals(exam.code)})</span>`;
+
+                // Countdown Cell (5th cell now)
+                const countdownCell = row.insertCell();
+                countdownCell.classList.add('countdown-timer', 'bn-num'); // Removed no-print here, handle via print CSS
+                countdownCell.id = `countdown-${exam.date}`;
+                // Add spans for screen vs print text
+                countdownCell.innerHTML = `
+                    <span class="screen-only-countdown">--</span>
+                    <span class="print-only-countdown">--</span>
+                `;
+
+                updateSingleCountdown(exam.date); // Initial update
+            });
+             // Add animation style
+             if (!document.getElementById('tableRowFadeInStyle')) { /* ... (same as before) ... */ const style = document.createElement('style'); style.id = 'tableRowFadeInStyle'; style.innerHTML = ` @keyframes fadeInTableRow { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }`; document.head.appendChild(style); }
+        }
+
+        // --- Countdown Logic (Detailed Format, Print Text) ---
+        function updateSingleCountdown(examDateStr) {
+             const countdownElement = document.getElementById(`countdown-${examDateStr}`);
+             if (!countdownElement) return;
+             const screenSpan = countdownElement.querySelector('.screen-only-countdown');
+             const printSpan = countdownElement.querySelector('.print-only-countdown');
+             if (!screenSpan || !printSpan) return; // Ensure spans exist
+
+             const now = new Date();
+             const examStartDateTime = new Date(`${examDateStr}T10:00:00`);
+             const examEndDateTime = new Date(`${examDateStr}T13:00:00`);
+             const statusCode = getExamStatusCode(examDateStr);
+
+             countdownElement.classList.remove('ongoing', 'completed'); // Reset classes
+
+             let screenText = '';
+             let printText = '-'; // Default print text
+
+             if (statusCode === 'completed') {
+                 screenText = '- সমাপ্ত -';
+                 countdownElement.classList.add('completed');
+                 printText = 'সমাপ্ত';
+             } else if (statusCode === 'ongoing') {
+                 const diffToEnd = Math.max(0, examEndDateTime - now);
+                 const hours = Math.floor((diffToEnd / (1000 * 60 * 60)) % 24);
+                 const minutes = Math.floor((diffToEnd / (1000 * 60)) % 60);
+                 const seconds = Math.floor((diffToEnd / 1000) % 60);
+                 screenText = `শেষ হতে ${toBengaliNumerals(String(hours).padStart(2,'০'))}:${toBengaliNumerals(String(minutes).padStart(2,'০'))}:${toBengaliNumerals(String(seconds).padStart(2,'০'))}`;
+                 countdownElement.classList.add('ongoing');
+                 printText = 'চলমান';
+             } else { // upcoming
+                 const diffToStart = Math.max(0, examStartDateTime - now);
+                 const days = Math.floor(diffToStart / (1000 * 60 * 60 * 24));
+                 const hours = Math.floor((diffToStart / (1000 * 60 * 60)) % 24);
+                 const minutes = Math.floor((diffToStart / (1000 * 60)) % 60);
+                 const seconds = Math.floor((diffToStart / 1000) % 60);
+
+                 // Build detailed screen text
+                 let partsScreen = [];
+                 if (days > 0) partsScreen.push(`${toBengaliNumerals(String(days))} দিন`);
+                 if (hours > 0 || days > 0) partsScreen.push(`${toBengaliNumerals(String(hours))} ঘণ্টা`); // Show hours if days>0 or hours>0
+                 if (minutes > 0 || hours > 0 || days > 0) partsScreen.push(`${toBengaliNumerals(String(minutes))} মিনিট`); // Show mins if needed
+                 if (seconds >= 0 && (minutes > 0 || hours > 0 || days > 0)) partsScreen.push(`${toBengaliNumerals(String(seconds))} সেকেন্ড`); // Show secs if > 1 min away
+                 else if (days === 0 && hours === 0 && minutes === 0) partsScreen.push(`${toBengaliNumerals(String(seconds))} সেকেন্ড`); // Show only seconds if < 1 min away
+
+                 screenText = partsScreen.length > 0 ? partsScreen.join(' ') + ' বাকি' : 'এখন শুরু';
+
+                 // Build simpler print text (Days, Hours, Minutes)
+                 let partsPrint = [];
+                  if (days > 0) partsPrint.push(`${toBengaliNumerals(String(days))} দিন`);
+                 if (hours > 0 || days > 0) partsPrint.push(`${toBengaliNumerals(String(hours))} ঘণ্টা`);
+                 if (minutes > 0 || hours > 0 || days > 0) partsPrint.push(`${toBengaliNumerals(String(minutes))} মিনিট`);
+                 printText = partsPrint.length > 0 ? partsPrint.join(' ') + ' বাকি' : 'আসন্ন';
+             }
+             screenSpan.textContent = screenText;
+             printSpan.textContent = printText; // Update hidden span for printing
+        }
+
+        function startCountdownUpdates() {
+             if(countdownInterval) clearInterval(countdownInterval);
+             examRoutineData.forEach(exam => updateSingleCountdown(exam.date));
+             updateProgressBar();
+             countdownInterval = setInterval(() => {
+                  let needsProgressUpdate = false;
+                  examRoutineData.forEach(exam => {
+                      const oldStatusCode = getExamStatusCode(exam.date);
+                      updateSingleCountdown(exam.date);
+                      const newStatusCode = getExamStatusCode(exam.date);
+                      if(oldStatusCode !== 'completed' && newStatusCode === 'completed') { needsProgressUpdate = true; }
+                  });
+                  if(needsProgressUpdate) { updateProgressBar(); }
+             }, 1000);
+        }
+
+
+        // --- Calendar Logic (Colors updated in CSS) ---
+        function renderCalendar(year, month) { /* ... (same as before) ... */ calendarGrid.innerHTML = ''; monthYearDisplay.textContent = `${monthNamesBn[month]} ${toBengaliNumerals(String(year))}`; const today = new Date(); today.setHours(0,0,0,0); const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`; const firstDayOfMonth = new Date(year, month, 1).getDay(); const daysInMonth = new Date(year, month + 1, 0).getDate(); for (let i = 0; i < firstDayOfMonth; i++) { calendarGrid.insertAdjacentHTML('beforeend', '<div class="calendar-day empty"></div>'); } for (let day = 1; day <= daysInMonth; day++) { const dayCell = document.createElement('div'); dayCell.classList.add('calendar-day'); const currentDateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`; dayCell.setAttribute('data-date', currentDateStr); dayCell.innerHTML = `<span class="day-number bn-num">${toBengaliNumerals(String(day))}</span><div class="note-indicator"></div>`; if (currentDateStr === todayStr) dayCell.classList.add('today'); if (examRoutineData.some(exam => exam.date === currentDateStr)) dayCell.classList.add('exam-day'); if (currentDateStr === selectedDate) dayCell.classList.add('selected-day'); if (notes[currentDateStr]) dayCell.classList.add('has-note'); dayCell.addEventListener('click', () => handleDayClick(dayCell, currentDateStr)); calendarGrid.appendChild(dayCell); } }
+        function handleDayClick(clickedCell, dateStr) { /* ... (same as before) ... */ const prevSelected = calendarGrid.querySelector('.selected-day'); if (prevSelected) prevSelected.classList.remove('selected-day'); clickedCell.classList.add('selected-day'); selectedDate = dateStr; noteDateDisplay.innerHTML = `<i class="fa-solid fa-pencil-alt"></i> নোট: <span class="bn-num">${formatDateBnLong(selectedDate)}</span>`; noteInput.value = notes[selectedDate] || ''; noteInput.focus(); }
+        function changeMonth(offset) { /* ... (same as before) ... */ currentMonth += offset; if (currentMonth < 0) { currentMonth = 11; currentYear--; } else if (currentMonth > 11) { currentMonth = 0; currentYear++; } renderCalendar(currentYear, currentMonth); }
+
+        // --- Notes Logic ---
+        function handleSaveNote() { /* ... (same as before) ... */ if (!selectedDate) { alert('নোট সংরক্ষণে প্রথমে ক্যালেন্ডার থেকে একটি তারিখ বাছুন।'); return; } const noteText = noteInput.value.trim(); const selectedDayCell = calendarGrid.querySelector(`.calendar-day[data-date="${selectedDate}"]`); if (noteText) { notes[selectedDate] = noteText; if (selectedDayCell) selectedDayCell.classList.add('has-note'); alert('নোট সফলভাবে সংরক্ষণ করা হয়েছে!'); } else { handleClearNote(false); return; } saveNotes(); }
+        function handleClearNote(showAlert = true) { /* ... (same as before) ... */ if (!selectedDate) { if (showAlert) alert('নোট মুছতে প্রথমে ক্যালেন্ডার থেকে একটি তারিখ বাছুন।'); return; } const selectedDayCell = calendarGrid.querySelector(`.calendar-day[data-date="${selectedDate}"]`); if (notes[selectedDate]) { delete notes[selectedDate]; if (selectedDayCell) selectedDayCell.classList.remove('has-note'); noteInput.value = ''; saveNotes(); if (showAlert) alert('নোট মুছে ফেলা হয়েছে!'); } else { if (showAlert) alert('এই তারিখে মুছে ফেলার মতো কোনো নোট নেই।'); } }
+
+        // --- Print Functionality ---
+        function handlePrint() { window.print(); }
+
+        // --- Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            loadNotes();
+            const firstUpcomingExam = examRoutineData.find(exam => getExamStatusCode(exam.date) !== 'completed');
+            const initialDate = firstUpcomingExam ? new Date(firstUpcomingExam.date + 'T00:00:00') : new Date();
+            currentYear = initialDate.getFullYear(); currentMonth = initialDate.getMonth();
+            populateRoutineTable(); renderCalendar(currentYear, currentMonth); startCountdownUpdates();
+            prevMonthBtn.addEventListener('click', () => changeMonth(-1)); nextMonthBtn.addEventListener('click', () => changeMonth(1));
+            saveNoteBtn.addEventListener('click', handleSaveNote); clearNoteBtn.addEventListener('click', () => handleClearNote(true));
+            printBtn.addEventListener('click', handlePrint);
+        });
+    </script>
+
+</body>
+</html>
